@@ -11,6 +11,7 @@ import (
 	kitprometheus "github.com/go-kit/kit/metrics/prometheus"
 	httptransport "github.com/go-kit/kit/transport/http"
 	stdprometheus "github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 type loggingMiddleware struct {
@@ -119,7 +120,7 @@ func main() {
 
 	http.Handle("/uppercase", uppercaseHandler)
 	http.Handle("/count", countHandler)
-
+	http.Handle("/metrics", promhttp.Handler())
 	logger.Log("msg", "HTTP", "addr", ":8080")
 	logger.Log("err", http.ListenAndServe(":8080", nil))
 }
