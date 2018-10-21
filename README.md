@@ -1,5 +1,5 @@
 # stringsvc
-An implementation of the stringsvc from the [go-kit](https://gokit.io) tutorial
+An implementation of the [stringsvc](https://gokit.io/examples/stringsvc.html#first-principles) from the [go-kit](https://gokit.io) tutorial
 
 ### Testing
 ```sh
