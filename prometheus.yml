@@ -1,0 +1,19 @@
+global:
+  scrape_interval:     5s 
+  external_labels:
+    monitor: 'rurocker-monitor'
+ 
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+        labels:
+          group: 'local'
+ 
+  - job_name: 'stringsvc'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['192.168.8.107:8080']
+        labels:
+          group: 'lorem'
